@@ -45,6 +45,11 @@ public class ProductRepo {
     public void removeSingleProduct(Product product) {
         this.storedProducts.remove(product);
     }
+    public void removeAmountOfProduct(int amount, Product product) {
+        for (int i = 0; i < amount; i++) {
+            removeSingleProduct(product);
+        }
+    }
     public void removeProductType(Product product) {
         int count = amountOfSpecificProduct(product);
         for (int i = 0; i < count; i++) {
