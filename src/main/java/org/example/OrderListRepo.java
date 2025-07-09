@@ -33,4 +33,11 @@ public class OrderListRepo implements OrderRepo {
             this.orders.remove(order);
         }
     }
+
+    public void replace (Order oldOrder, Order newOrder) {
+        if (orders.contains(oldOrder)) {
+            this.orders.remove(oldOrder);
+            this.orders.add(newOrder);
+        }
+    }
 }

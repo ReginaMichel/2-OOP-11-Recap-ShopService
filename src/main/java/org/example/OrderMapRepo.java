@@ -31,6 +31,14 @@ public class OrderMapRepo implements OrderRepo {
             }
         }
     }
+    public void replace (Order oldOrder, Order newOrder) {
+        for (Integer key: this.orders.keySet()) {
+            if (this.orders.get(key).equals(oldOrder)) {
+                this.orders.remove(key);
+                this.orders.put(key, newOrder);
+            }
+        }
+    }
 
     public Order getSingle (int id) {
         return this.orders.get(id);
