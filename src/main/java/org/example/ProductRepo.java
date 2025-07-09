@@ -1,5 +1,6 @@
 package org.example;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class ProductRepo {
@@ -19,6 +20,15 @@ public class ProductRepo {
     public void addProduct(Product newProduct) {
         this.storedProducts.add(newProduct);
     }
+    public void addAmountOfSpecificProduct(int amount, Product newProduct) {
+        for (int i = 0; i < amount; i++) {
+            this.storedProducts.add(newProduct);
+        }
+    }
+    public void addMultipleProducts(ArrayList<Product> newProducts) {
+        this.storedProducts.addAll(newProducts);
+    }
+
     public void removeSingleProduct(Product product) {
         this.storedProducts.remove(product);
     }
