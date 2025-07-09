@@ -29,6 +29,8 @@ public class OrderListRepo implements OrderRepo {
     }
 
     public void remove(Order order) {
-        this.orders.remove(order);
+        if (orders.contains(order)) {
+            this.orders.remove(order);
+        }
     }
 }
