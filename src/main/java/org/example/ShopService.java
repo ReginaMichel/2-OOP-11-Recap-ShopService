@@ -5,22 +5,22 @@ import java.time.LocalDateTime;
 public class ShopService {
 
     private ProductRepo productRepo;
-    private OrderListRepo orderListRepo;
+    private OrderRepo orderRepo;
 
-    public ShopService() {
+    public ShopService(OrderRepo orderRepo) {
         this.productRepo = new ProductRepo();
-        this.orderListRepo = new OrderListRepo();
+        this.orderRepo = orderRepo;
     }
-    public ShopService(ProductRepo productRepo, OrderListRepo orderListRepo) {
+    public ShopService(ProductRepo productRepo, OrderRepo orderRepo) {
         this.productRepo = productRepo;
-        this.orderListRepo = orderListRepo;
+        this.orderRepo = orderRepo;
     }
 
     public void order (Customer customer, Product product, int quantity) {
         if (productRepo.amountOfSpecificProduct(product) >= quantity) {
             Order newOrder = new Order(customer, product, quantity,
                     LocalDateTime.now());
-            orderListRepo.add(newOrder);
+            orderRepo.add(newOrder);
             productRepo.removeAmountOfProduct(quantity, product);
             System.out.println(quantity + " items of " + product.name()
             + " ordered.");
