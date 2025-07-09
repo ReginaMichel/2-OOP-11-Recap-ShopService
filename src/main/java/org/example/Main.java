@@ -20,5 +20,8 @@ public class Main {
         System.out.println(store.amountOfSpecificProduct(zahnpasta));
         store.removeProductType(zahnpasta);
         System.out.println(store.getStoredProducts());
+
+        OrderRepo orderMapRepo = new OrderMapRepo();
+        ShopService shopService = new ShopService(orderMapRepo);
     }
 }
