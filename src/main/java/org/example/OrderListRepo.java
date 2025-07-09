@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 
-public class OrderListRepo {
+public class OrderListRepo implements OrderRepo {
     ArrayList<Order> orders;
 
     public OrderListRepo() {
@@ -12,7 +12,7 @@ public class OrderListRepo {
         this.orders = orders;
     }
 
-    public ArrayList<Order> getOrders() {
+    public ArrayList<Order> getAll() {
         return orders;
     }
     public void printOrders() {
@@ -20,12 +20,15 @@ public class OrderListRepo {
             System.out.println(order);
         }
     }
+    public Order getSingle (int id) {
+        return orders.get(id);
+    }
 
-    public void addOrder(Order newOrder) {
+    public void add(Order newOrder) {
         this.orders.add(newOrder);
     }
 
-    public void deleteOrder(Order order) {
+    public void remove(Order order) {
         this.orders.remove(order);
     }
 }

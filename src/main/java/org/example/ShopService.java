@@ -20,7 +20,7 @@ public class ShopService {
         if (productRepo.amountOfSpecificProduct(product) >= quantity) {
             Order newOrder = new Order(customer, product, quantity,
                     LocalDateTime.now());
-            orderListRepo.addOrder(newOrder);
+            orderListRepo.add(newOrder);
             productRepo.removeAmountOfProduct(quantity, product);
             System.out.println(quantity + " items of " + product.name()
             + " ordered.");
